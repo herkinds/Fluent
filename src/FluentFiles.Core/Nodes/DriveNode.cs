@@ -22,7 +22,7 @@ namespace FluentFiles.Core.Nodes
         public Path Descend(FolderNode child)
             => new Path(this, child);
 
-        public override string ToString() => $"{Name}:";
+        public override string ToString() => Name;
 
         #region Factory methods
         public static IEnumerable<DriveNode> GetDrives()
