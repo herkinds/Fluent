@@ -1,4 +1,5 @@
 ﻿using FluentFiles.Core.Nodes;
+using FluentFiles.Core.Nodes.Navigation;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,19 +7,27 @@ using System.Linq;
 
 namespace FluentFiles.Core
 {
-    public sealed class Path : IReadOnlyList<INode>
+    public sealed class Path : IPath, IAscendable<Path>, IDescendable<Path, FolderNode>
     {
-        public Path(Drive drive, params Folder[] folders)
+        public Path(DriveNode drive, params FolderNode[] folders)
         {
             Drive = drive ?? throw new ArgumentNullException(nameof(drive));
             Folders = folders;
         }
 
-        public Drive Drive { get; }
+        public DriveNode Drive { get; }
 
-        public IReadOnlyList<Folder> Folders { get; }
+        public IReadOnlyList<FolderNode> Folders { get; }
 
-        #region IReadOnlyList
+        #region IAscendable & IDescendable
+        public Path Ascend()
+            => new Path(Drive, Folders.Take(Folders.Count - 1).ToArray());
+
+        public Path Descend(FolderNode child)
+            => new Path(Drive, Folders.Append(child).ToArray());
+        #endregion
+
+        #region IPath
         public INode this[int index]
         {
             get
@@ -41,10 +50,13 @@ namespace FluentFiles.Core
 
         IEnumerator IEnumerable.GetEnumerator()
             => GetEnumerator();
-        #endregion
 
         public bool Exists()
             => System.IO.Directory.Exists(this);
+
+        public void Create()
+            => System.IO.Directory.CreateDirectory(this);
+        #endregion
 
         public static implicit operator string(Path path)
             => path?.ToString();
