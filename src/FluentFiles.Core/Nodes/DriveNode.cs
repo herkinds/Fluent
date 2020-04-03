@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace FluentFiles.Core.Nodes
 {
-    public sealed class DriveNode : INode, IDescendable<Path, FolderNode>
+    public sealed class DriveNode : INode, IDescendable<DirectoryPath, DirectoryNode>
     {
         private readonly System.IO.DriveInfo drive;
 
@@ -19,8 +19,8 @@ namespace FluentFiles.Core.Nodes
 
         // TODO Extend for more properties of DriveInfo
 
-        public Path Descend(FolderNode child)
-            => new Path(this, child);
+        public DirectoryPath Descend(DirectoryNode child)
+            => new DirectoryPath(this, child);
 
         public override string ToString() => Name;
 

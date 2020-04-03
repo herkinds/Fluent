@@ -3,28 +3,28 @@ using System.Linq;
 
 namespace FluentFiles.Core.Nodes
 {
-    public sealed class FolderNode : INode
+    public sealed class DirectoryNode : INode
     {
-        private FolderNode(string name)
+        private DirectoryNode(string name)
         {
             Name = name ?? throw new ArgumentNullException(nameof(name));
         }
 
         public string Name { get; }
 
-        public static FolderNode Empty { get; } = new FolderNode(string.Empty);
+        public static DirectoryNode Empty { get; } = new DirectoryNode(string.Empty);
 
         #region Factory methods
-        public static bool TryParse(string name, out FolderNode folder)
+        public static bool TryParse(string name, out DirectoryNode folder)
         {
             bool isValid = System.IO.Path.GetInvalidPathChars().Any(c => name.Contains(c));
-            folder = isValid ? new FolderNode(name) : Empty;
+            folder = isValid ? new DirectoryNode(name) : Empty;
             return isValid;
         }
 
-        public static FolderNode Parse(string name)
+        public static DirectoryNode Parse(string name)
         {
-            if (TryParse(name, out FolderNode folder))
+            if (TryParse(name, out DirectoryNode folder))
                 return folder;
             else
                 throw new System.IO.DirectoryNotFoundException(); // TODO improve exception

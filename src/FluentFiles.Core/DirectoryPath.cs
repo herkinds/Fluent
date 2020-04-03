@@ -3,28 +3,29 @@ using FluentFiles.Core.Nodes.Navigation;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace FluentFiles.Core
 {
-    public sealed class Path : IPath, IAscendable<Path>, IDescendable<Path, FolderNode>
+    public sealed class DirectoryPath : IPath, IAscendable<DirectoryPath>, IDescendable<DirectoryPath, DirectoryNode>
     {
-        public Path(DriveNode drive, params FolderNode[] folders)
+        public DirectoryPath(DriveNode drive, params DirectoryNode[] directories)
         {
             Drive = drive ?? throw new ArgumentNullException(nameof(drive));
-            Folders = folders;
+            Directories = directories;
         }
 
         public DriveNode Drive { get; }
 
-        public IReadOnlyList<FolderNode> Folders { get; }
+        public IReadOnlyList<DirectoryNode> Directories { get; }
 
         #region IAscendable & IDescendable
-        public Path Ascend()
-            => new Path(Drive, Folders.Take(Folders.Count - 1).ToArray());
+        public DirectoryPath Ascend()
+            => new DirectoryPath(Drive, Directories.Take(Directories.Count - 1).ToArray());
 
-        public Path Descend(FolderNode child)
-            => new Path(Drive, Folders.Append(child).ToArray());
+        public DirectoryPath Descend(DirectoryNode child)
+            => new DirectoryPath(Drive, Directories.Append(child).ToArray());
         #endregion
 
         #region IPath
@@ -35,16 +36,16 @@ namespace FluentFiles.Core
                 if (index == 0)
                     return Drive;
                 else
-                    return Folders[index - 1];
+                    return Directories[index - 1];
             }
         }
 
-        public int Count => Folders.Count + 1;
+        public int Count => Directories.Count + 1;
 
         public IEnumerator<INode> GetEnumerator()
         {
             yield return Drive;
-            foreach (var folder in Folders)
+            foreach (var folder in Directories)
                 yield return folder;
         }
 
@@ -58,12 +59,13 @@ namespace FluentFiles.Core
             => System.IO.Directory.CreateDirectory(this);
         #endregion
 
-        public static implicit operator string(Path path)
+        public static implicit operator string(DirectoryPath path)
             => path?.ToString();
 
-        public override string ToString()
-            => string.Join(Separator, this.Select(node => node.Name));
+        public static implicit operator DirectoryInfo(DirectoryPath path)
+            => new DirectoryInfo(path);
 
-        public static char Separator { get => System.IO.Path.PathSeparator; }
+        public override string ToString()
+            => Path.Combine(this.Select(node => node.Name).ToArray());
     }
 }
