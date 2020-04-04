@@ -63,7 +63,7 @@ namespace FluentFiles.Core
             => path?.ToString();
 
         public static implicit operator DirectoryInfo(DirectoryPath path)
-            => new DirectoryInfo(path);
+            => path != null ? new DirectoryInfo(path) : null;
 
         public override string ToString()
             => Path.Combine(this.Select(node => node.Name).ToArray());
