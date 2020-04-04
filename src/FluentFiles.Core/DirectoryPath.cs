@@ -1,5 +1,5 @@
-﻿using FluentFiles.Core.Nodes;
-using FluentFiles.Core.Nodes.Navigation;
+﻿using FluentFiles.Core.Navigation;
+using FluentFiles.Core.Nodes;
 using System;
 using System.Collections;
 using System.Collections.Generic;

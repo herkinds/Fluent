@@ -1,4 +1,4 @@
-﻿namespace FluentFiles.Core.Nodes.Navigation
+﻿namespace FluentFiles.Core.Navigation
 {
     public interface IAscendable<TPath> where TPath : IPath
     {

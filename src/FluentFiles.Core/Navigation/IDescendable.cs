@@ -1,4 +1,6 @@
-﻿namespace FluentFiles.Core.Nodes
+﻿using FluentFiles.Core.Nodes;
+
+namespace FluentFiles.Core.Navigation
 {
     public interface IDescendable<TPath, TChild> where TPath : IPath where TChild : INode
     {
