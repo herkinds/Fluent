@@ -1,5 +1,5 @@
 ﻿using Herkinds.FluentFiles.Core.Nodes;
-using Herkinds.FluentFiles.Core.Nodes.Navigation;
+using Herkinds.FluentFiles.Core.Navigation;
 using System;
 using System.Collections;
 using System.Collections.Generic;

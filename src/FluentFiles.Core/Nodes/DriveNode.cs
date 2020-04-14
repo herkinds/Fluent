@@ -1,4 +1,4 @@
-﻿using FluentFiles.Core.Navigation;
+﻿using Herkinds.FluentFiles.Core.Navigation;
 using System;
 using System.Collections.Generic;
 using System.IO;
