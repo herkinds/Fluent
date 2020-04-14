@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace FluentFiles.Core.Nodes
+namespace Herkinds.FluentFiles.Core.Nodes
 {
     public sealed class DriveNode : INode, IDescendable<DirectoryPath, DirectoryNode>
     {

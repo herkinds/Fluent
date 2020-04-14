@@ -1,7 +1,7 @@
-﻿using FluentFiles.Core.Nodes;
+﻿using Herkinds.FluentFiles.Core.Nodes;
 using System.Collections.Generic;
 
-namespace FluentFiles.Core
+namespace Herkinds.FluentFiles.Core
 {
     public interface IPath : IReadOnlyList<INode>
     {

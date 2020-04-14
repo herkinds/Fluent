@@ -1,12 +1,12 @@
-﻿using FluentFiles.Core.Nodes;
-using FluentFiles.Core.Nodes.Navigation;
+﻿using Herkinds.FluentFiles.Core.Nodes;
+using Herkinds.FluentFiles.Core.Nodes.Navigation;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace FluentFiles.Core
+namespace Herkinds.FluentFiles.Core
 {
     public sealed class DirectoryPath : IPath, IAscendable<DirectoryPath>, IDescendable<DirectoryPath, DirectoryNode>
     {
