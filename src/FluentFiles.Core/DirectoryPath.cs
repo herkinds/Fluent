@@ -53,10 +53,10 @@ namespace Herkinds.FluentFiles.Core
             => GetEnumerator();
 
         public bool Exists()
-            => System.IO.Directory.Exists(this);
+            => Directory.Exists(this);
 
         public void Create()
-            => System.IO.Directory.CreateDirectory(this);
+            => Directory.CreateDirectory(this);
         #endregion
 
         public static implicit operator string(DirectoryPath path)
