@@ -7,6 +7,8 @@
 	<PropertyGroup>
 		<WarningLevel>4</WarningLevel>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<AssemblyName>Herknids.FluentFiles.Core</AssemblyName>
+		<RootNamespace>Herkinds.FluentFiles.Core</RootNamespace>
 	</PropertyGroup>
 
 </Project>
