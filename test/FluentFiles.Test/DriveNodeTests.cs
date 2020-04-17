@@ -7,11 +7,11 @@ namespace Herkinds.FluentFiles.Test
     public class DriveNodeTests
     {
         [Fact]
-        public void DriveName()
+        public void GetDrives()
         {
-            var drive = new DriveNode("C");
+            var drives = DriveNode.GetDrives();
 
-            drive.Name.Should().Contain("C:");
+            drives.Should().NotBeEmpty();
         }
     }
 }
