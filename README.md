@@ -1,6 +1,6 @@
 # FluentFiles
 
-![build/test](https://github.com/herkinds/FluentFiles/workflows/.NET%20Core/badge.svg)[https://github.com/herkinds/FluentFiles/actions]
+[![.NET Core](https://github.com/herkinds/FluentFiles/workflows/.NET%20Core/badge.svg)](https://github.com/herkinds/FluentFiles/actions)
 
 [![NuGet][nuget-badge] ![NuGet Downloads][nuget-download-badge]][nuget]
 
