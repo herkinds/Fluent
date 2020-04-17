@@ -1,6 +1,6 @@
 # FluentFiles
 
-[![build](https://github.com/herkinds/FluentFiles/workflows/build/badge.svg)](https://github.com/herkinds/FluentFiles/actions)
+[![build-ubuntu](https://github.com/herkinds/FluentFiles/workflows/build-ubuntu/badge.svg)](https://github.com/herkinds/FluentFiles/actions)
 
 [![NuGet][nuget-badge] ![NuGet Downloads][nuget-download-badge]][nuget]
 
