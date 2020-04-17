@@ -1,4 +1,4 @@
-﻿namespace Herkinds.FluentFiles.Core.Nodes
+﻿namespace Herkinds.FluentFiles.Nodes
 {
     public interface INode
     {

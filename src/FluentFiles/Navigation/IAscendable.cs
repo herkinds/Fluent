@@ -1,4 +1,4 @@
-﻿namespace Herkinds.FluentFiles.Core.Navigation
+﻿namespace Herkinds.FluentFiles.Navigation
 {
     public interface IAscendable<TPath> where TPath : IPath
     {

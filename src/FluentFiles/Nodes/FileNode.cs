@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Herkinds.FluentFiles.Core.Nodes
+namespace Herkinds.FluentFiles.Nodes
 {
     public sealed class FileNode : INode
     {

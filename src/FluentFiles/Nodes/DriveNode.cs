@@ -1,10 +1,10 @@
-﻿using Herkinds.FluentFiles.Core.Navigation;
+﻿using Herkinds.FluentFiles.Navigation;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Herkinds.FluentFiles.Core.Nodes
+namespace Herkinds.FluentFiles.Nodes
 {
     /// <summary>
     /// Is the adapter class for <see cref="DriveInfo"/>, which provides access to information on a drive.

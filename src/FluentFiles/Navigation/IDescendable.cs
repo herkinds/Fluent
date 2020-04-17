@@ -1,6 +1,6 @@
-﻿using Herkinds.FluentFiles.Core.Nodes;
+﻿using Herkinds.FluentFiles.Nodes;
 
-namespace Herkinds.FluentFiles.Core.Navigation
+namespace Herkinds.FluentFiles.Navigation
 {
     public interface IDescendable<TPath, TChild> where TPath : IPath where TChild : INode
     {

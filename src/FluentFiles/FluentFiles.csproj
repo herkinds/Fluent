@@ -7,8 +7,10 @@
 	<PropertyGroup>
 		<WarningLevel>4</WarningLevel>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-		<AssemblyName>Herknids.FluentFiles.Core</AssemblyName>
-		<RootNamespace>Herkinds.FluentFiles.Core</RootNamespace>
+		<AssemblyName>Herkinds.FluentFiles</AssemblyName>
+		<RootNamespace>Herkinds.FluentFiles</RootNamespace>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Authors>Herkinds</Authors>
 	</PropertyGroup>
 
 </Project>
