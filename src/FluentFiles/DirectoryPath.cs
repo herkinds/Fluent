@@ -59,6 +59,7 @@ namespace Herkinds.FluentFiles
             => Directory.CreateDirectory(this);
         #endregion
 
+        #region Cast & ToString
         public static implicit operator string(DirectoryPath path)
             => path?.ToString();
 
@@ -67,5 +68,6 @@ namespace Herkinds.FluentFiles
 
         public override string ToString()
             => Path.Combine(this.Select(node => node.Name).ToArray());
+        #endregion
     }
 }
