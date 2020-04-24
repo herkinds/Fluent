@@ -1,4 +1,5 @@
-﻿using Herkinds.FluentFiles.Nodes;
+﻿using Herkinds.FluentFiles.Navigation;
+using Herkinds.FluentFiles.Nodes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,7 +8,8 @@ using System.Linq;
 
 namespace Herkinds.FluentFiles
 {
-    public sealed class FilePath : IPath
+    public sealed class FilePath : IPath,
+        IAscendable<DirectoryPath>
     {
         public FilePath(DirectoryPath location, FileNode file)
         {
@@ -18,6 +20,11 @@ namespace Herkinds.FluentFiles
         public DirectoryPath Location { get; }
 
         public FileNode File { get; set; }
+
+        #region IAscendable & IDescendable
+        public DirectoryPath Ascend()
+            => Location;
+        #endregion
 
         #region IPath
         public INode this[int index]
