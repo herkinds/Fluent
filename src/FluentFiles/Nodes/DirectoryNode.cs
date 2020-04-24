@@ -12,13 +12,13 @@ namespace Herkinds.FluentFiles.Nodes
 
         public string Name { get; }
 
-        public static DirectoryNode Empty { get; } = new DirectoryNode(string.Empty);
+        public static DirectoryNode Null { get; } = new DirectoryNode(string.Empty);
 
         #region Factory methods
         public static bool TryParse(string name, out DirectoryNode folder)
         {
             bool isValid = System.IO.Path.GetInvalidPathChars().Any(c => name.Contains(c));
-            folder = isValid ? new DirectoryNode(name) : Empty;
+            folder = isValid ? new DirectoryNode(name) : Null;
             return isValid;
         }
 

@@ -5,7 +5,7 @@ namespace Herkinds.FluentFiles.Nodes
 {
     public sealed class FileNode : INode
     {
-        private FileNode(string name, string extension)
+        public FileNode(string name, string extension)
         {
             Name = name ?? throw new ArgumentNullException(nameof(name));
             Extension = extension ?? throw new ArgumentNullException(nameof(extension));
@@ -15,13 +15,14 @@ namespace Herkinds.FluentFiles.Nodes
 
         public string Extension { get; }
 
-        public static FileNode Empty { get; } = new FileNode(string.Empty, string.Empty);
+        public static FileNode Null { get; } = new FileNode(string.Empty, string.Empty);
 
         #region Factory methods
         public static bool TryParse(string name, string extension, out FileNode file)
         {
             bool isValid = System.IO.Path.GetInvalidFileNameChars().Any(c => name.Contains(c));
-            file = isValid ? new FileNode(name, extension) : Empty;
+            // TODO: Check extension
+            file = isValid ? new FileNode(name, extension) : Null;
             return isValid;
         }
 
@@ -30,7 +31,7 @@ namespace Herkinds.FluentFiles.Nodes
             if (TryParse(name, extension, out FileNode folder))
                 return folder;
             else
-                throw new System.IO.FileNotFoundException(); // TODO improve exception
+                throw new ArgumentException("");
         }
         #endregion
     }
