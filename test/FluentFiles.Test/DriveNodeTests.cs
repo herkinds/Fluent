@@ -1,5 +1,6 @@
 namespace Herkinds.FluentFiles.Test
 {
+    using System.Linq;
     using FluentAssertions;
     using Herkinds.FluentFiles.Nodes;
     using Xunit;
@@ -18,6 +19,7 @@ namespace Herkinds.FluentFiles.Test
             var drives = DriveNode.GetDrives();
 
             drives.Should().NotBeEmpty();
+            drives.First().Name.Should().NotBeNullOrEmpty();
         }
     }
 }
